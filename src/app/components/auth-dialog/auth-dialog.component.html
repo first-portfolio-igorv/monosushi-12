@@ -1,0 +1,21 @@
+<div class="auth-block">
+    <div class="signin-icon" *ngIf="signInCheck">
+      <h1>Вхід в кабінет</h1>
+      <input type="text" name="" id="" class="text email" [(ngModel)]="email" placeholder="Ваш email">
+      <input type="password" name="" id="" class="text password" [(ngModel)]="password" placeholder="Пароль">
+      <input type="button" value="Увійти в кабінет" class="button signin" (click)="signIn()">
+      <h5 class="up" (click)="signUpIcon()">Зареєструватись</h5>
+      <span *ngIf="fail">Ви щось ввели неправильно або такого аккаунту не існує</span>
+  </div>
+  <div class="signup-icon" *ngIf="!signInCheck">
+    <h1>Зареєструватись</h1>
+    <input type="text" name="" id="" class="text name" [(ngModel)]="name" placeholder="Ім'я">
+    <input type="text" name="" id="" class="text name m" [(ngModel)]="surname" placeholder="Прізвище">
+    <input type="text" name="" id="" class="text email" [(ngModel)]="email" placeholder="Ваш email">
+    <input type="password" name="" id="" class="text password" [(ngModel)]="password" placeholder="Пароль">
+    <input type="button" value="Увійти в кабінет" class="button signin" (click)="signUp()">
+    <h5 class="in" (click)="signInIcon()">Увійти</h5>
+    <span *ngIf="fail">Ви щось ввели неправильно або такий аккаунт вже існує</span>
+  
+  </div>
+  </div>

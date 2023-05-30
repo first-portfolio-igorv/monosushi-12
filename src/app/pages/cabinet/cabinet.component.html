@@ -1,0 +1,85 @@
+<div class="cabinet">
+    <div class="navigation">
+        <button [ngClass]="{'button': !selfInfoActive, 'buttonActive' : selfInfoActive}"
+            (click)="buttonCheck(1)">Особисті дані</button>
+        <button [ngClass]="{'button': !orderHistoryActive, 'buttonActive' : orderHistoryActive}"
+            (click)="buttonCheck(2)">Історія замовлень</button>
+        <button [ngClass]="{'button': !changePasswordActive, 'buttonActive' : changePasswordActive}"
+            (click)="buttonCheck(3)">Зміна пароля</button>
+
+        <button class="exit" (click)="logout()">ВИХІД</button>
+    </div>
+    <div class="self-info-block" *ngIf="selfInfoActive">
+        <span class="num1"></span> <span class="title">Особисті дані</span>
+        <div class="inputs">
+            <input type="text" class="small" placeholder="Ваше ім'я">
+            <input type="text" class="small" placeholder="Ваше прізвище">
+            <input type="text" placeholder="Ваш номер телефону">
+            <input type="text" placeholder="Ваш емейл">
+        </div>
+        <span class="num2"></span> <span class="title">Адреси</span> <br>
+        <div class="buttons">
+            <button class="button">ДОДАТИ АДРЕСУ</button>
+            <button (click)="confirm()">ЗБЕРЕГТИ ЗМІНИ</button>
+
+        </div>
+    </div>
+    <div class="order-history" *ngIf="orderHistoryActive">
+        <table>
+            <thead>
+                <tr>
+                    <td>№ замовлення</td>
+                    <td>Дата та час</td>
+                    <td>Адреса</td>
+                    <td>Сума</td>
+                    <td>Статус</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">№ 1</td>
+                    <td>25.03.2023 19:34</td>
+                    <td>Самовивіз</td>
+                    <td>2000 <span>грн</span></td>
+                    <td class="color">Виконано</td>
+                </tr>
+                <tr class="items">
+                    <td></td>
+                    <td class="item">Запечені роли </td>
+                    <td class="count">1</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="bold">№ 1</td>
+                    <td>25.03.2023 19:34</td>
+                    <td>Самовивіз</td>
+                    <td>2000 <span>грн</span></td>
+                    <td class="color">Виконано</td>
+                </tr>
+                <tr class="items">
+                    <td></td>
+                    <td class="item">Запечені роли </td>
+                    <td class="count">1</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="changePassword-block" *ngIf="changePasswordActive">
+        <span class="title">Зміна пароля</span>
+        <div class="inputs">
+            <input type="text" placeholder="Ваш поточний пароль">
+            <input type="text" placeholder="новий пароль">
+            <input type="text" placeholder="повторіть пароль ">
+        </div>
+        <div class="buttons">
+            <button class="button">СКАСУВИТИ</button>
+        <button>ЗБЕРЕГТИ ЗМІНИ</button>
+        </div>
+        
+    </div>
+</div>

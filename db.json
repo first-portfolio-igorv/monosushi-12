@@ -1,0 +1,179 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Роли",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/category-images%2Fnav-img-rolls.svg?alt=media&token=507a6fc3-10bf-4160-bc7b-e14e46ea983d",
+      "path": "sushi"
+    },
+    {
+      "id": 2,
+      "name": "Сети",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/category-images%2Fnav-img-sets.svg?alt=media&token=f598a2bf-861d-4d05-ba82-339dab10767a",
+      "path": "sushiSets"
+    },
+    {
+      "id": 3,
+      "name": "Напої",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/category-images%2Fnav-img-drinks.svg?alt=media&token=3e033398-9941-453d-b08d-2a299dc7d4c2",
+      "path": "drinks"
+    },
+    {
+      "id": 4,
+      "name": "Соуси",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/category-images%2Ficon-souse.svg?alt=media&token=8f957871-a0e9-4dad-b3f8-a7a44ef3196e",
+      "path": "souse"
+    }
+  ],
+  "discounts": [
+    {
+      "name": "1+1=3",
+      "title": "Велика вигода",
+      "description": "Купуй два роли та отримуй третій у подарунок",
+      "path": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/images%2F5-tyj-v-podarunok-.jpg1?alt=media&token=86c11ac6-b2e9-46ef-b3e6-78aeeaadc1dd",
+      "id": 1
+    },
+    {
+      "name": "Вигідна середа",
+      "title": "25% знижки в середу",
+      "description": "Купуйте будь-які роли або інші позиції з нашого асортименту та отримуйте 25% знижки",
+      "path": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/images%2Fmonokombo.jpg1?alt=media&token=85232c86-b58d-4c08-83ec-a22cdd7c6dcd",
+      "id": 2
+    }
+  ],
+  "product": [
+    {
+      "name": "Філадельфія",
+      "components": "лосось, рис, авокадо, норі, риба, огірок",
+      "path": "rolls",
+      "price": "290",
+      "weight": "300",
+      "id": 1,
+      "totalPrice": "290",
+      "count": 1,
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F1.-filadelfiya-z-lososem.jpg4?alt=media&token=cc5dc778-8d32-4579-b0b0-f4428ffd8879",
+      "category": "Роли"
+    },
+    {
+      "name": "Каліфорнія",
+      "components": "краб, огірок, норі, вершковий сир, ікра, кунжут",
+      "path": "rolls",
+      "price": "200",
+      "category": "Роли",
+      "weight": "300",
+      "totalPrice": "200",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F3.1-kaliforniya-z-krabom-v-kunzhuti.jpg1?alt=media&token=180fbdb1-631e-48b2-855a-53b15eb5ee85",
+      "id": 2,
+      "count": 1
+    },
+    {
+      "name": "Філадельфія в кунжуті",
+      "components": "тунець, вершковий сир, авокадо, кунжут",
+      "path": "rolls",
+      "price": "250",
+      "category": "Роли",
+      "weight": "250",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F2.-filadelfiya-v-kunzhuti.jpg3?alt=media&token=73727417-b4e4-4b51-a650-d9e2cb2bf3ab",
+      "id": 3,
+      "count": 1,
+      "totalPrice": "20"
+    },
+    {
+      "name": "Запечений рол",
+      "components": "рис, норі, сир, кунжут, лосось",
+      "path": "rolls",
+      "price": "150",
+      "category": "Роли",
+      "weight": "200",
+      "totalPrice": "150",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F2.-zapechenyj-syrnyj-z-los.jpg1?alt=media&token=0cc48222-801c-4588-a5ed-6e2c431c8d80",
+      "id": 4,
+      "count": 1
+    },
+    {
+      "name": "Сок яблучний",
+      "components": "сік яблучний",
+      "path": "drink",
+      "price": "50",
+      "category": "Напої",
+      "weight": "500",
+      "totalPrice": "50",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2Fvyshnya.jpg1?alt=media&token=a3aa580c-2a5f-402d-bb5e-9970294a2e08",
+      "id": 5,
+      "count": 1
+    },
+    {
+      "name": "Піца Свят",
+      "components": "огірок, арбуз, картошка, олія, персик",
+      "path": "Pizza",
+      "price": "20",
+      "category": "Роли",
+      "weight": "5000",
+      "count": 1,
+      "totalPrice": "20",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png1?alt=media&token=01b63e38-474f-42e8-b946-47d9ba853bd0",
+      "id": 6
+    },
+    {
+      "name": "cola",
+      "path": "drink",
+      "price": "20",
+      "category": "Напої",
+      "weight": "500",
+      "count": 1,
+      "totalPrice": "20",
+      "img": "https://firebasestorage.googleapis.com/v0/b/monosushi-c5ef0.appspot.com/o/product-images%2F1.-filadelfiya-z-lososem.jpg1?alt=media&token=2674b139-c2dd-4535-bf71-b8389c5e9720",
+      "id": 7
+    }
+  ],
+  "account": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "qwer1234",
+      "name": "admin",
+      "surname": "admin",
+      "role": "admin"
+    },
+    {
+      "email": "igorvelychko@gmail.com",
+      "password": "qwer1234",
+      "name": "igor",
+      "surname": "velychko",
+      "role": "user",
+      "id": 2
+    },
+    {
+      "email": "igor@gmail.com",
+      "password": "qwer1234",
+      "name": "asdf",
+      "surname": "adf",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "email": "asdfsa@saf",
+      "password": "asdfas",
+      "name": "asdfas",
+      "surname": "asdfas",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "email": "igoor@gmail.com",
+      "password": "asdfd",
+      "name": "asdf",
+      "surname": "asdf",
+      "role": "user",
+      "id": 5
+    },
+    {
+      "email": "igorvelycho@gmail.com",
+      "password": "12345678",
+      "name": "igor",
+      "surname": "velychko",
+      "role": "user",
+      "id": 6
+    }
+  ]
+}
