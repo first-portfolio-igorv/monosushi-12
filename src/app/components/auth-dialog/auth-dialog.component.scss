@@ -13,14 +13,33 @@
     padding:30px 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 15px;
+    @include respond(mobileS){
+        width: 400px;
+        padding:10px;
+    }
+    @include respond(mobileXS){
+        width: 300px;
+        padding:10px;
+    }
     .signin-icon,.signup-icon {
+        margin: auto;
         width: 500px;
         height: 340px;
-
+        @include respond(mobileS){
+            width: 370px;
+            height: 260px;
+        }
+        @include respond(mobileXS){
+            width: 270px;
+            height: 200px;
+        }
         h1 {
             text-align: center;
             font-weight: bold;
             font-size: 25px;
+            @include respond(mobileS){
+                font-size: 20px;
+            }
         }
 
         .text {
@@ -31,7 +50,16 @@
             font-size: 17px;
             margin: 20px 0px;
             padding-left: 10px;
-
+            @include respond(mobileS){
+                height: 40px;
+                font-size:15px;
+                margin:10px 0px;
+            }
+            @include respond(mobileXS){
+                height: 35px;
+                font-size:14px;
+                margin:5px 0px;
+            }
             &:focus {
 
                 border: none;
@@ -50,6 +78,14 @@
             margin-top: 10px;
             background-color: rgb(26, 169, 26);
             @extend %focus;
+            @include respond(mobileS){
+                height: 40px;
+            }
+            @include respond(mobileXS){
+                height: 35px;
+                font-size:16px;
+                margin:5px 0px;
+            }
             &:hover {
                 background-color: rgb(22, 139, 22);
             }
@@ -59,7 +95,9 @@
             margin: 10px 0px;
             color: rgb(64, 128, 255);
             font-weight: 400;
-
+            @include respond(mobileXS){
+                margin: 5px 0px;
+            }
             &:hover {
                 text-decoration: underline;
                 cursor: default;
@@ -72,6 +110,13 @@
     }
     .signup-icon{
         height: 500px;
+        @include respond(mobileS){
+            height:310px;
+        }
+        @include respond(mobileXS){
+            height: 40px;
+            height: 260px;
+        }
         .name{
             width: 48%;
         }
@@ -80,6 +125,13 @@
         }
         .m{
             margin-left: 20px;
+            @include respond(mobileS){
+                margin-left: 13px;
+            }
+            @include respond(mobileXS){
+                margin-left: 10px;
+            }
+            
         }
     
     }

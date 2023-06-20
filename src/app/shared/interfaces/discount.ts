@@ -5,5 +5,5 @@ export interface DiscountRequest {
     path:string
 }
 export interface DiscountResponse extends DiscountRequest{
-    id:number
+    id:number | string
 }

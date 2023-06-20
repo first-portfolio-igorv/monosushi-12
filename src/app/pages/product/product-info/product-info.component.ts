@@ -10,6 +10,9 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
   styleUrls: ['./product-info.component.scss']
 })
 export class ProductInfoComponent implements OnInit {
+  public productInfo!:ProductResponse;
+  public price!: number
+  public totalPrice!:number;
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
@@ -19,16 +22,19 @@ export class ProductInfoComponent implements OnInit {
     this.activatedRoute.data.subscribe(info => {
       this.productInfo = info['productInfo'];
       this.price = Number(this.productInfo.price);
+      this.totalPrice=this.price;
     })
   }
-  public productInfo!: ProductResponse;
-  public price!: number
-  fCount(info: ProductResponse, check: boolean) {
+  
+  fCount( info:ProductResponse,check: boolean) {
     if (check) {
       this.productInfo.count++;
+      this.totalPrice=this.productInfo.count*this.price;
     }
     else if (!check && this.productInfo.count > 1) {
       this.productInfo.count--;
+      this.totalPrice=this.productInfo.count*this.price;
+
     }
   }
   countChange() {

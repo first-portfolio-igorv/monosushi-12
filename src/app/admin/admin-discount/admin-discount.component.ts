@@ -16,7 +16,7 @@ export class AdminDiscountComponent implements OnInit {
   public title!: string;
   public discountStorage!: DiscountResponse[];
   public saveButtonCheck = false;
-  public itemId!: number;
+  public itemId!: number | string;
   public random = 0;
   public discountForm: any;
   public varify1: any;
@@ -54,7 +54,7 @@ export class AdminDiscountComponent implements OnInit {
         description: this.description,
         path: this.discountForm
       }
-      this.Discountservice.add(info).subscribe(() => {
+      this.Discountservice.add(info).then(() => {
         this.getAll();
       })
       this.clear();
@@ -69,7 +69,7 @@ export class AdminDiscountComponent implements OnInit {
     this.title = info.title;
     this.description = info.description;
     this.saveButtonCheck = !this.saveButtonCheck;
-    this.itemId = info.id;
+    this.itemId = info.id as string;
   }
   saveDiscountChanges() {
     let info = {
@@ -78,14 +78,14 @@ export class AdminDiscountComponent implements OnInit {
       description: this.description,
       path: this.discountForm
     }
-    this.Discountservice.edit(info, this.itemId).subscribe(() => {
+    this.Discountservice.edit(info, this.itemId as string).then(() => {
       this.getAll();
     })
     this.clear();
     this.saveButtonCheck = false;
   }
   deleteDiscount(info: DiscountResponse) {
-    this.Discountservice.delete(info.id).subscribe(() => {
+    this.Discountservice.delete(info.id as string).then(() => {
       this.getAll();
     })
     this.deleteImage(info.path);
@@ -95,7 +95,7 @@ export class AdminDiscountComponent implements OnInit {
   }
   getAll() {
     this.Discountservice.getAll().subscribe(data => {
-      this.discountStorage = data;
+      this.discountStorage = data as DiscountResponse[];
     })
   }
   upload(event: any) {

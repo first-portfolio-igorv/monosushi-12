@@ -54,6 +54,7 @@ header {
         padding: 15px 20px;
         text-align: center;
         display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.214);
 
         @include respond(tablet) {
             padding: 0px 30px
@@ -299,7 +300,12 @@ header {
 
         &__img {
             position: relative;
-
+            @include respond(mobile) {
+                padding-top: 10px;
+                img{
+                    width: 30px;
+                }
+            }
             .item-count {
                 width: 20px;
                 height: 20px;
@@ -310,6 +316,11 @@ header {
                 position: absolute;
                 top: 0px;
                 right: -5px;
+                @include respond(mobile) {
+                    width: 15px;
+                    height: 15px;
+                    font-size: 10px;
+                }
             }
         }
 
@@ -320,12 +331,16 @@ header {
 
             @include respond(mobile) {
                 margin-left: 0px;
+                font-size: 13px;
             }
         }
 
         .currency {
             font-size: 16px;
             margin-top: 10px;
+            @include respond(mobile) {
+                font-size: 13px;
+            }
         }
     }
 
@@ -416,7 +431,7 @@ header {
             text-align: center;
             width: 100%;
             height: 100%;
-
+            @extend %focus;
             span {
                 font-size: 14px;
                 margin-top: 5px;
@@ -451,7 +466,17 @@ header {
     border-top: 1px solid black;
     padding-top: 10px;
     z-index: 1;
-
+    @include respond(tablet){
+        top:60px;
+    }
+    @include respond(tabletS){
+        width: 500px;
+        height: 350px;
+    }
+    @include respond(mobileS){
+        width: 100%;
+        height: 100%;
+    }
     .empty-block {
         width: 220px;
         height: 235px;
@@ -492,6 +517,9 @@ header {
     .full-block {
         overflow-y: scroll;
         height: 300px;
+        @include respond(mobileS){
+            height: 80%;
+        }
         .item {
             width: 100%;
             height: 110px;
@@ -499,16 +527,39 @@ header {
             justify-content: space-between;
             padding: 10px 20px;
             position:relative;
+            @include respond(tabletS){
+                height: 80px;
+            }
+            @include respond(mobileS){
+                height: 110px;
+                padding: 10px 10px;
+            }
+            @include respond(mobileXS){
+                height: 90px;
+                padding: 0px 0px;
+            }
             .img {
                 width: 122px;
                 height: 92px;
                 display: flex;
                 justify-content: space-between;
-
+                @include respond(tabletS){
+                    width: 120px;
+                    height: 90px;
+                }
+                
                 img {
                     margin: auto;
-                    max-height: 92px;
-                    max-width: 122px;
+                    max-height: 90px;
+                    max-width: 120px;
+                    @include respond(tabletS){
+                        max-height: 70px;
+                        max-width: 100px;
+                    }
+                    @include respond(mobileS){
+                        max-height: 50px;
+                        max-width: 80px;
+                    }
                 }
             }
             .icon{
@@ -519,19 +570,34 @@ header {
                 font-size: 18px;
                 font-weight: bold;
                 line-height: 20px;
-                margin: 30px 50px 0px 0px;
+                margin: 30px 20px 0px 0px;
+                @include respond(tabletS){
+                    width: 120px;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                @include respond(mobileS){
+                    max-width: 90px;
+                    font-size: 14px;
+                    margin-right: 10px;
+                }
             }
 
             .parchase-block {
                 width: 250px;
                 padding-top: 20px;
                 display: flex;
-
+                @include respond(tabletS){
+                    width: 200px;
+                }
                 .price {
                     margin-top: 10px;
                     font-size: 16px;
                     margin-left: 20px;
-
+                    @include respond(mobileS){
+                        font-size: 14px;
+                        margin-left: 10px;
+                    }
                     span {
                         font-weight: bold;
                     }
@@ -541,6 +607,9 @@ header {
                     margin: 10px 0px 0px 15px;
                     width: 25px;
                     height: 30px;
+                    @include respond(mobileS){
+                        margin-top: 5px;
+                    }
                 }
 
                 .count-block {
@@ -553,7 +622,18 @@ header {
                     padding-top: 5px;
                     font-size: 22px;
                     font-weight: bold;
-
+                    @include respond(tabletS){
+                        width: 90px;
+                    }
+                    @include respond(mobileS){
+                        width: 70px;
+                        height: 40px;
+                    }
+                    @include respond(mobileXS){
+                        width: 60px;
+                        height: 35px;
+                        padding-top: 2px;
+                    }
                     .minus,
                     .plus {
                         width: 30px;
@@ -563,6 +643,9 @@ header {
                         transition-duration: 0.2s;
                         text-align: center;
                         cursor: pointer;
+                        @include respond(mobileS){
+                            font-size: 16px;
+                        }
                     }
 
                     .num {
@@ -573,7 +656,10 @@ header {
                         font-weight: bold;
                         padding-left: 10px;
                         border: none;
-
+                        @include respond(mobileS){
+                            font-size: 16px;
+                            margin-top: 0px;
+                        }
                         &:focus {
                             border: none;
                             outline: none;
@@ -594,11 +680,24 @@ header {
         justify-content: space-between;
         position: absolute;
         bottom: 0px;
+        @include respond(tabletS){
+            height: 60px;
+            padding: 5px 15px 5px 15px;
+        }
+        @include respond(mobileS){
+            position: fixed;
+            border-radius: 0px;
+        }
         span {
             display: block;
             font-size: 20px;
             margin-top: 15px;
-
+            @include respond(tabletS){
+                margin-top: 13px;
+            }
+            @include respond(mobileS){
+                font-size: 16px;
+            }
             span {
                 display: contents;
                 font-weight: bold;
@@ -608,7 +707,6 @@ header {
         button {
             width: 250px;
             height: 56px;
-            // background-color: rgb(205, 205, 205);
             background-color: white;
             border: 1.5px solid transparent;
             border-radius: 7px;
@@ -618,7 +716,17 @@ header {
             font-size: 15px;
             line-height: 45px;
             @extend %focus;
-
+            @include respond(tabletS){
+                width: 240px;
+                height: 40px;
+                margin-top: 5px;
+                line-height: 30px;
+            }
+            @include respond(mobileXS){
+                width: 210px;
+                margin-top: 5px;
+                font-size: 13px;
+            }
             &:hover {
                 background-color: transparent;
                 border: 1.5px solid white;

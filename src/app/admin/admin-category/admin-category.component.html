@@ -20,8 +20,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let info of categoryStorage">
-                <td class="num">№{{info.id}}</td>
+            <tr *ngFor="let info of categoryStorage;  index as num">
+                <td class="num">№{{num+1}}</td>
                 <td>{{info.name}}</td>
                 <td class="description path">{{info.path}}</td>
                 <td class="img"><img [src]="info.imagePath" alt=""></td>

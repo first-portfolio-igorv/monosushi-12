@@ -30,7 +30,7 @@ export class AdminProductComponent implements OnInit {
   public price!:string;
   public weight!:string;
   public count=1;
-  public id!:number;
+  public id!:number | string;
   public productStorage!:ProductResponse[];
   public categoryStorage!:ICategoryResponse[];
   public random = 0;
@@ -53,10 +53,10 @@ export class AdminProductComponent implements OnInit {
   }
   getAll(){
     this.ProductService.getAll().subscribe(info=>{
-      this.productStorage=info;
+      this.productStorage=info as ProductResponse[];
     })
-    this.CategoryService.getAll().subscribe(info=>{
-      this.categoryStorage=info;
+    this.CategoryService.getAllF().subscribe(info=>{
+      this.categoryStorage=info as ICategoryResponse[];
     })
   }
   add(){
@@ -71,7 +71,7 @@ export class AdminProductComponent implements OnInit {
       totalPrice:this.price,
       img:this.productForm
     }
-    this.ProductService.add(info).subscribe(()=>{
+    this.ProductService.add(info).then(()=>{
       this.getAll()
       this.clear()
     });
@@ -100,14 +100,14 @@ export class AdminProductComponent implements OnInit {
       img:this.productForm,
       totalPrice:this.price
     }
-    this.ProductService.edit(info,this.id).subscribe(()=>{
+    this.ProductService.edit(info,this.id as string).then(()=>{
       this.getAll();
       this.clear();
       this.saveCheck=false;
     })
   }
   delete(info:ProductResponse){
-    this.ProductService.delete(info.id).subscribe(()=>{
+    this.ProductService.delete(info.id as string).then(()=>{
       this.getAll();
       this.deleteImage(info.img)
     })

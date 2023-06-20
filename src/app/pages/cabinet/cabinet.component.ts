@@ -20,9 +20,6 @@ export class CabinetComponent implements OnInit {
     this.router.navigate(['']);
     this.accountService.checkUser$.next(true);
   }
-  confirm(){
-    
-  }
   buttonCheck(num:number){
     if(num==1){
       this.orderHistoryActive=false;
@@ -39,6 +36,9 @@ export class CabinetComponent implements OnInit {
       this.selfInfoActive=false;
       this.changePasswordActive=true;
     }
+  }
+  confirm(){
+    
   }
   ngOnInit(): void {
   }

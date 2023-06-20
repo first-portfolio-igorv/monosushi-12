@@ -15,7 +15,7 @@ export class AdminCategoryComponent implements OnInit {
   public title!: string;
   public categoryStorage!: ICategoryResponse[];
   public saveButtonCheck = false;
-  public itemId!: number;
+  public itemId!: string | number;
   public random = 0;
   public categoryForm: any;
   public varify1: any;
@@ -46,7 +46,7 @@ export class AdminCategoryComponent implements OnInit {
         path: this.title,
         imagePath: this.categoryForm
       }
-      this.CategoryService.add(info).subscribe(() => {
+      this.CategoryService.addF(info).then(() => {
         this.getAll();
       })
       this.clear();
@@ -59,8 +59,9 @@ export class AdminCategoryComponent implements OnInit {
     this.addBlock = true;
     this.name = info.name;
     this.title = info.path;
+    this.categoryForm=info.imagePath;
     this.saveButtonCheck = !this.saveButtonCheck;
-    this.itemId = info.id;
+    this.itemId = info.id as string;
   }
   saveCategoryChanges() {
     let info = {
@@ -68,14 +69,14 @@ export class AdminCategoryComponent implements OnInit {
       path: this.title,
       imagePath: this.categoryForm
     }
-    this.CategoryService.edit(info, this.itemId).subscribe(() => {
+    this.CategoryService.editF(info, this.itemId as string).then(() => {
       this.getAll();
     })
     this.clear();
     this.saveButtonCheck = false;
   }
   deleteCategory(info: ICategoryResponse) {
-    this.CategoryService.delete(info.id).subscribe(() => {
+    this.CategoryService.deleteF(info.id as string).then(() => {
       this.getAll();
     })
     this.deleteImage(info.imagePath);
@@ -84,8 +85,8 @@ export class AdminCategoryComponent implements OnInit {
     this.getAll();
   }
   getAll() {
-    this.CategoryService.getAll().subscribe(data => {
-      this.categoryStorage = data;
+    this.CategoryService.getAllF().subscribe(data => {
+      this.categoryStorage = data as ICategoryResponse[];
     })
   }
   upload(event: any) {

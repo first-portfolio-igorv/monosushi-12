@@ -16,11 +16,12 @@ export class DiscountComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.getAll()
+    window.scrollTo(0,0)
   }
   public discountStorage!:DiscountResponse[];
   getAll(){
     this.discountService.getAll().subscribe(info=>{
-      this.discountStorage=info;
+      this.discountStorage=info as DiscountResponse[];
     })
   }
 }

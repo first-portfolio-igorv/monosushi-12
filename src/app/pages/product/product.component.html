@@ -2,7 +2,7 @@
     <div class="category-name"><span >{{categoryName}}</span> </div>
 </main>
     <div class="products">
-        <div class="product-category-list" >
+        <div class="product-category-list" *ngIf="categoryList">
             <div [ngClass]="{'product-category-active': category==1,'product-category': category!=1}" (click)="activate($event)" id="1">Всі</div>
             <div [ngClass]="{'product-category-active': category==2,'product-category': category!=2}" (click)="activate($event)" id="2">Філадельфія</div>
             <div [ngClass]="{'product-category-active': category==3,'product-category': category!=3}" (click)="activate($event)" id="3">Каліфорнія</div>

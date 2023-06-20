@@ -4,35 +4,42 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProductRequest, ProductResponse } from '../../interfaces/product';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import {  Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, getDocs, query, updateDoc, where } from '@angular/fire/firestore';
+import { CollectionReference, DocumentData } from '@firebase/firestore'
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService implements Resolve<ProductResponse[]>{
+export class ProductService{
   public url=environment.BACKEND_URL;
   public api={product:`${this.url}/product`}
-  getAll():Observable<ProductResponse[]>{
-    return this.http.get<ProductResponse[]>(this.api.product)
+  public collection:CollectionReference<DocumentData>
+  getAll(){
+    return collectionData(this.collection, {idField:"id"})
   }
-  getAllByCategory(name:string):Observable<ProductResponse[]>{
-    return this.http.get<ProductResponse[]>(`${this.api.product}?category=${name}`)
+  getOne(id:string){
+    let product=doc(this.afs, `products/${id}`)
+    return docData(product, {idField:"id"})
   }
-  getOne(id:number):Observable<ProductResponse>{
-    return this.http.get<ProductResponse>(`${this.api.product}/${id}`)
+  add(info:ProductRequest){
+    return addDoc(this.collection, info)
   }
-  add(info:ProductRequest):Observable<ProductResponse>{
-    return this.http.post<ProductResponse>(this.api.product,info)
+  delete(id:string){
+    let product=doc(this.afs, `products/${id}`)
+    return deleteDoc(product)
   }
-  delete(id:number){
-    return this.http.delete(`${this.api.product}/${id}`)
+  edit(info:ProductRequest, id:string){
+    let product= doc(this.afs, `products/${id}`)
+    return updateDoc(product,{...info})
   }
-  edit(info:ProductRequest, id:number):Observable<ProductResponse[]>{
-    return this.http.patch<ProductResponse[]>(`${this.api.product}/${id}`,info)
-  }
-  resolve(route:ActivatedRouteSnapshot):Observable<ProductResponse[]>{
-    return this.http.get<ProductResponse[]>(`${this.api.product}/${route.paramMap.get("id")}`)
+  resolve(route:ActivatedRouteSnapshot){
+    let product= doc(this.afs, `products/${route.paramMap.get("id")}`)
+    return docData(product, {idField:"id"})
   }
   constructor(
-    public http:HttpClient
-  ) { }
+    public http:HttpClient,
+    private afs:Firestore
+  ) { 
+     this.collection=collection(this.afs,"products")
+  }
 }

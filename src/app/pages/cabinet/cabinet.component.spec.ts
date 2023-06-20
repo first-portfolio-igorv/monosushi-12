@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CabinetComponent } from './cabinet.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CabinetComponent', () => {
   let component: CabinetComponent;
@@ -8,7 +10,11 @@ describe('CabinetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CabinetComponent ]
+      declarations: [ CabinetComponent ],
+      imports:[
+        HttpClientTestingModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
 
@@ -20,4 +26,13 @@ describe('CabinetComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should check',()=>{
+    let num=2;
+    spyOn(component,"logout").and.callThrough;
+    spyOn(component,"buttonCheck").and.callThrough;
+    component.buttonCheck(num);
+    component.logout();
+    expect(component.buttonCheck).toHaveBeenCalled()
+    expect(component.logout).toHaveBeenCalled()
+  })
 });

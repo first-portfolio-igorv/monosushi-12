@@ -95,18 +95,13 @@ export class AuthDialogComponent implements OnInit {
       let currentUser = { ...user, uid: credential.user.uid };
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
       if (user['role']=="admin") {
-        this.adminCheck = true;
-        this.userCheck = false;
-        this.guestCheck = false;
-        this.authBlockActive = false;
-        this.router.navigate(["/admin"])
+        this.accountService.checkUser$.next(true);
+        this.router.navigate(["/admin"]);
       }
       else {
-        this.adminCheck = false
-        this.userCheck = true;
-        this.guestCheck = false;
-        this.authBlockActive = false;
+        this.accountService.checkUser$.next(true);
         this.router.navigate(["/cabinet"])
+        console.log("done")
       }
       this.clearInput()
     }, (e) => {
@@ -142,6 +137,8 @@ export class AuthDialogComponent implements OnInit {
     let password = this.password;
     this.register(email,password).then(()=>{
       console.log("signUp is done")
+      this.accountService.checkUser$.next(true);
+      this.router.navigate(['/cabinet']);
     }).catch(e=>{
       console.log(e)
       this.fail=true;
@@ -165,16 +162,10 @@ export class AuthDialogComponent implements OnInit {
       this.guestCheck = false;
       this.userCheck = true;
       this.clearInput()
-
     setDoc(doc(this.afs,"users",credential.user.uid),user);
     }
     else{
       this.fail=true;
     }
-  }
-  loadAccount() {
-    this.accountService.getAll().subscribe(info => {
-      localStorage.setItem("users", JSON.stringify(info))
-    })
   }
 }

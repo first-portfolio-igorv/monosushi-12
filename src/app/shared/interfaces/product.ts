@@ -7,8 +7,8 @@ export interface ProductRequest {
     weight:string,
     img:string,
     count:number,
-    totalPrice:string
+    totalPrice:string,
 }
 export interface ProductResponse extends ProductRequest {
-    id:number
+    id:number | string
 }

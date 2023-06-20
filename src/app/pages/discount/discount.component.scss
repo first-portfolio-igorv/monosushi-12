@@ -9,13 +9,22 @@ main {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-around;
-
+    @include respond(tablet){
+        margin: 60px 0px 20px;
+    }
     span {
         padding-top: 20px;
         font-size: 40px;
         font-weight: bold;
         text-align: center;
         border-top: 6px solid $mainBlue;
+        @include respond(mobileS){
+            font-size: 32px;
+            padding-top: 10px;
+        }
+        @include respond(tablet){
+            padding-top: 10px;
+        }
     }
 }
 
@@ -28,13 +37,34 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    @include respond(tablet){
+        width: 95%;
+    }
+
     .discount {
-        width: 600px;
+        width: 530px;
         height: 430px;
+        margin: auto;
         &:hover .name{
             color: $mainBlue;
         }
         margin-bottom: 20px;
+        @include respond(tablet){
+            width: 450px;
+            height: 350px;
+        }
+        @include respond(tabletS){
+            width: 700px;
+            height: 500px;
+        }@include respond(mobileS){
+            height: 380px;
+        }
+        @include respond(mobileS){
+            height: 380px;
+        }
+        @include respond(mobileXS){
+            height: 320px;
+        }
         .name {
             font-size: 25px;
             font-weight: bold;
@@ -42,6 +72,10 @@ main {
             justify-content: center;
             margin: 20px 0px;
             transition-duration: 0.5s;
+            @include respond(mobileS){
+                font-size: 20px;
+                margin: 15px 0px;
+            }
         }
 
         .img {
@@ -65,8 +99,10 @@ main {
             background-color: $mainBlue;
             border: 0px;
         }
-
-        button {
+        .button{
+            display: flex;
+            justify-content: space-around;
+            button {
             width: 300px;
             height: 50px;
             background-color: $mainBlue;
@@ -74,13 +110,19 @@ main {
             border-radius: 10px;
             font-weight: bold;
             font-size: 16px;
-            margin: 20px 150px 0px;
+            margin: 20px 0px 0px;
             transition-duration: 0.2s;
             @extend %focus;
             &:hover {
                 background-color: transparent;
                 border: 2px solid $mainBlue;
             }
+            @include respond(mobileS){
+                width: 250px;
+                height: 40px;
+            }
         }
+        }
+        
     }
 }

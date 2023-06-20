@@ -14,10 +14,10 @@ export class AccountService {
   ) { }
   public url=environment.BACKEND_URL;
   public api={account:`${this.url}/account`};
-  getAll():Observable<AccountResponse[]>{
-    return this.http.get<AccountResponse[]>(this.api.account);
-  }
-  create(info:AccountRequest):Observable<AccountResponse>{
-    return this.http.post<AccountResponse>(this.api.account,info);
-  }
+  // getAll():Observable<AccountResponse[]>{
+  //   return this.http.get<AccountResponse[]>(this.api.account);
+  // }
+  // create(info:AccountRequest):Observable<AccountResponse>{
+  //   return this.http.post<AccountResponse>(this.api.account,info);
+  // }
 }

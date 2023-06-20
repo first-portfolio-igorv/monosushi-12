@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.getAll();
+    window.scrollTo(0,0)
   }
   public productStorage!:ProductResponse[];
   public category!:number;
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
   getAll(){
     this.productService.getAll().subscribe(info=>{
-      this.productStorage=info;
+      this.productStorage=info as ProductResponse[];
     })
   }
   slider(info:any){

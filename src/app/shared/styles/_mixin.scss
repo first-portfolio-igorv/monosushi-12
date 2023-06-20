@@ -19,4 +19,14 @@
             @content;
         }
     }
+    @if $screen == mobileXS{
+        @media only screen and (max-width:420px){
+            @content;
+        }
+    }
+    @if $screen == tabletM{
+        @media only screen and (max-width:1400px){
+            @content;
+        }
+    }
 }

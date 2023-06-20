@@ -87,15 +87,20 @@ export class HeaderComponent implements OnInit {
     return this.categoryForm.get(control)?.value;
   }
   loadCategory() {
-    this.categoryServise.getAll().subscribe(data => {
-      this.categoryList = data;
+    this.categoryServise.getAllF().subscribe(data => {
+      this.categoryList = data as ICategoryResponse[];
+      this.smalCategoryList=[];
       let i = 0;
       for (let info of this.categoryList) {
         if (i < 4) {
           i++;
           this.smalCategoryList.push(info)
         }
+        else{
+          console.log("asdf")
+        }
       }
+      console.log(this.smalCategoryList)
     })
   }
   loadBasket() {
@@ -191,6 +196,7 @@ export class HeaderComponent implements OnInit {
       if (user.role == "admin") {
         this.adminCheck = true;
         this.guestCheck = false;
+        this.userCheck = false;
       }
       else {
         this.guestCheck = false;

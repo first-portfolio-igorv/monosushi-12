@@ -21,12 +21,13 @@ export class ProductComponent implements OnInit,OnDestroy {
   ) { 
   this.subscribe=this.router.events.subscribe(event =>{
     if(event instanceof NavigationEnd){
-      this.loadProduct()
+      this.loadAllProduct()
     }
   })
   }
   ngOnInit(): void {
-    this.loadProduct()
+    this.loadAllProduct();
+    window.scrollTo(0,0)
   }
   ngOnDestroy(): void {
     this.subscribe.unsubscribe()
@@ -34,16 +35,34 @@ export class ProductComponent implements OnInit,OnDestroy {
   public subscribe!:Subscription;
   public categoryName!:string;
   public productStorage!:ProductResponse[];
+  public allProductStorage!:ProductResponse[];
   public category!:number;
+  public categoryList=true;
   activate(info:any){
     this.category=info.target.id;
   }
-  loadProduct(){
-    let categoryName=this.activatedRoute.snapshot.paramMap.get("category") as string;
-    this.categoryName=categoryName
-    this.productService.getAllByCategory(categoryName).subscribe(info=>{
-      this.productStorage=info;
+  loadAllProduct(){
+    this.productService.getAll().subscribe(info=>{
+      this.allProductStorage=info as ProductResponse[];
+      this.loadProduct(this.allProductStorage);
     })
+  }
+  loadProduct(info:ProductResponse[]){
+    let categoryName=this.activatedRoute.snapshot.paramMap.get("category") as string;
+    if(categoryName=="Соуси" || categoryName=="Напої"){
+      this.categoryList=false;
+    }
+    else{
+      this.categoryList=true;
+    }
+    let storage=[];
+    this.categoryName=categoryName
+    for (let i=0; i<info.length;i++) {
+      if(info[i].category==categoryName){
+        storage.push(info[i])
+      }
+    }
+    this.productStorage=storage;
   }
   fCount(info: ProductResponse, check: boolean) {
     if (check) {

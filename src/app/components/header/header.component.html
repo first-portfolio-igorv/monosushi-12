@@ -62,8 +62,8 @@
     <span class="currency">грн</span>
   </div>
   <div class="bottom-categories">
-    <div class="product-category" *ngFor="let info of categoryList">
-      <img [src]="info.imagePath" alt="" height="30px" />
+    <div class="product-category" *ngFor="let info of categoryList" [routerLink]="[ '/product/'+info.name ]">
+      <img [src]="info.imagePath" alt="" height="30px" >
       <span>{{ info.name }}</span>
     </div>
   </div>

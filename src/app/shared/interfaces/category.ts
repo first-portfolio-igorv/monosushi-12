@@ -1,5 +1,5 @@
 export interface ICategoryResponse {
-    id:number,
+    id:number | string,
     name:string,
     imagePath:string,
     path:string
